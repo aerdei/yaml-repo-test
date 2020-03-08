@@ -1,0 +1,29 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  labels:
+    app: httpd-example
+    template: httpd-example
+  name: httpd-example
+  namespace: yago
+spec:
+  host: httpd-example-yago.apps.ocp.example.com
+  port:
+    targetPort: web
+  to:
+    kind: Service
+    name: httpd-example
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: "2020-03-08T13:24:33Z"
+      status: "True"
+      type: Admitted
+    host: httpd-example-yago.apps.ocp.example.com
+    routerCanonicalHostname: apps.ocp.example.com
+    routerName: default
+    wildcardPolicy: None
