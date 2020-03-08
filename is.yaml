@@ -1,0 +1,16 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    description: Keeps track of changes in the application image
+    openshift.io/generated-by: OpenShiftNewApp
+  generation: 1
+  labels:
+    app: httpd-example
+    template: httpd-example
+  name: httpd-example
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: ""
